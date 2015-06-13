@@ -1,0 +1,29 @@
+[user]
+    name = Brian Kracoff
+    email = bkracoff@gmail.com
+    
+[core]
+    excludesfile = ~/.gitignore_global
+    editor = emacs
+
+[color]
+    ui = true
+ 
+[push]
+    default = simple
+ 
+[alias]
+    br = branch
+    ci = commit
+    clean-branches = !git fetch --prune origin && git branch --merged master | grep -v master | xargs git branch -d
+    co = checkout
+    cob = checkout -b
+    df = diff
+    lg = log --oneline --decorate
+    lgpp = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    rb = rebase
+    rbi = rebase -i
+    st = status -sb
+    su = submodule update
+    list-alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+    

@@ -1,0 +1,23 @@
+# Aliases
+
+alias ll='ls -l'
+alias l='ls'
+alias ls='ls -G'
+alias la='ls -a'
+
+# Git autocomplete (https://github.com/git/git/blob/master/contrib/completion/git-completion.bash)
+ 
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+ 
+# Hub (https://github.com/github/hub)
+ 
+eval "$(hub alias -s)"
+ 
+# PS1
+ 
+cyan="\[\e[0;36m\]"
+white="\[\e[0;38m\]"
+ 
+export PS1="$white<$cyan \u$white: $cyan\w$white > $ "

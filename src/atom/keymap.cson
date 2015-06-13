@@ -1,0 +1,6 @@
+'.platform-darwin':
+  'cmd-J': 'tree-view:reveal-active-file'
+  'cmd-O': 'fuzzy-finder:toggle-file-finder'
+
+'.platform-darwin atom-text-editor:not(.mini)':
+  'cmd-L': 'linter:lint'

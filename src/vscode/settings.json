@@ -1,16 +1,25 @@
 {
-  "editor.formatOnSave": true,
+  // Editor
   "editor.codeActionsOnSave": {
     "source.fixAll.tslint": true
   },
+  "editor.formatOnSave": true,
+  "editor.fontSize": 14,
   "editor.minimap.enabled": false,
-
+  // Files
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": false,
   "files.trimTrailingWhitespace": true,
+  // Window
+  "window.openFoldersInNewWindow": "on",
+  // Workbench
   "workbench.startupEditor": "newUntitledFile",
   "workbench.iconTheme": "vscode-icons",
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.enablePreview": false,
-  "workbench.list.openMode": "doubleClick"
+  "workbench.list.openMode": "doubleClick",
+  // Language specific
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.importModuleSpecifier": "relative"
 }

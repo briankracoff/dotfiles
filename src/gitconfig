@@ -8,6 +8,10 @@
 
 [color]
     ui = true
+
+[pager]
+    branch = false
+    diff = false
  
 [push]
     default = simple

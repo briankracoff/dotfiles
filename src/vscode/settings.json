@@ -1,4 +1,7 @@
 {
+  /*
+   * Basic settings
+   */
   // Editor
   "editor.codeActionsOnSave": {
     "source.fixAll.tslint": true
@@ -14,12 +17,79 @@
   "window.openFoldersInNewWindow": "on",
   // Workbench
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.iconTheme": "vscode-icons",
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.enablePreview": false,
+  "workbench.iconTheme": "vscode-icons",
   "workbench.list.openMode": "doubleClick",
-  // Language specific
+  /*
+   * Language specific
+   */
+  // Javascript
   "javascript.implicitProjectConfig.experimentalDecorators": true,
   "javascript.preferences.importModuleSpecifier": "relative",
-  "typescript.preferences.importModuleSpecifier": "relative"
+  "[javascript]": {
+    "editor.formatOnSave": false,
+  },
+  // JSON
+  "[json]": {
+    "editor.formatOnSave": false,
+  },
+  // Typescript
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  /*
+   * Extensions
+   */
+  // Gitlens
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.views.repositories.location": "scm",
+  "gitlens.views.lineHistory.location": "scm",
+  "gitlens.views.fileHistory.location": "scm",
+  "gitlens.views.search.location": "scm",
+  "gitlens.views.compare.location": "scm",
+  "gitlens.keymap": "none",
+  "gitlens.menus": {
+    "editor": {
+      "blame": false,
+      "clipboard": false,
+      "compare": true,
+      "details": false,
+      "history": false,
+      "remote": true
+    },
+    "editorGroup": {
+      "blame": true,
+      "compare": true
+    },
+    "editorTab": {
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true
+    },
+    "explorer": {
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true
+    },
+    "scmGroup": {
+      "compare": true,
+      "openClose": true,
+      "stash": true,
+      "stashInline": true
+    },
+    "scmItem": {
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true,
+      "stash": true
+    }
+  },
+  "gitlens.codeLens.scopes": [
+    "document"
+  ],
+  "gitlens.hovers.enabled": false
 }

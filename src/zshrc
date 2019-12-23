@@ -1,0 +1,72 @@
+# - OhMyZsh -
+
+export ZSH="/Users/briankracoff/.oh-my-zsh"
+
+HYPHEN_INSENSITIVE="true"
+ENABLE_CORRECTION="true"
+
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+
+ZSH_THEME_AWS_PREFIX="["
+ZSH_THEME_AWS_SUFFIX="]"
+
+plugins=(
+    asdf
+    dotenv
+    git
+    zsh-autosuggestions
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# AWS helpers (source https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/aws/aws.plugin.zsh)
+# There was an issue with that plugin when using asdf and installing aws via pip
+
+function aws_profiles {
+  [[ -r "${AWS_CONFIG_FILE:-$HOME/.aws/config}" ]] || return 1
+  grep '\[profile' "${AWS_CONFIG_FILE:-$HOME/.aws/config}"|sed -e 's/.*profile \([a-zA-Z0-9_\.-]*\).*/\1/'
+}
+
+function asp {
+  if [[ -z "$1" ]]; then
+    unset AWS_DEFAULT_PROFILE AWS_PROFILE AWS_EB_PROFILE
+    echo AWS profile cleared.
+    return
+  fi
+
+  local available_profiles=($(aws_profiles))
+  if [[ -z "${available_profiles[(r)$1]}" ]]; then
+    echo "${fg[red]}Profile '$1' not found in '${AWS_CONFIG_FILE:-$HOME/.aws/config}'" >&2
+    echo "Available profiles: ${(j:, :)available_profiles:-no profiles found}${reset_color}" >&2
+    return 1
+  fi
+
+  export AWS_DEFAULT_PROFILE=$1
+  export AWS_PROFILE=$1
+  export AWS_EB_PROFILE=$1
+}
+
+aws_prompt_info() {
+  [[ -z $AWS_PROFILE ]] && return
+  echo "${ZSH_THEME_AWS_PREFIX:=<aws:}${AWS_PROFILE}${ZSH_THEME_AWS_SUFFIX:=>}"
+}
+
+# Prompt
+
+setopt PROMPT_SUBST
+
+parse_git_branch() {
+    branch=$(git_current_branch)
+    if [ ! -z $branch ];then
+        echo '@'$branch
+    fi
+}
+
+PROMPT=$'%{${fg[cyan]}%}%~%{${fg[magenta]}%}$(parse_git_branch)%{${fg[default]}%} '
+RPROMPT=$'$(aws_prompt_info)'
+
+# - Aliases -
+
+alias ll='ls -l'
+alias la='ls -a'
+alias yarn='nocorrect yarn'

@@ -70,5 +70,17 @@ RPROMPT=$'$(aws_prompt_info)'
 alias ll='ls -l'
 alias la='ls -a'
 alias yarn='nocorrect yarn'
-alias make='nocorrect make'
-alias gpc='gh pr checkout'
+alias magick='nocorrect magick'
+
+# iOS
+
+alias recordSimulator='xcrun simctl io booted recordVideo ~/Desktop/video.mov'
+alias rmDerivedData='rm -rf ~/Library/Developer/Xcode/DerivedData/'
+alias videoToGif='ffmpeg -i ~/Desktop/video.mov ~/Desktop/video.gif && rm ~/Desktop/video.mov'
+
+# Postgres
+alias psqlStart='pg_ctl -D /usr/local/var/postgres start'
+alias psqlStop='pg_ctl -D /usr/local/var/postgres stop'
+
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

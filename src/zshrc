@@ -76,6 +76,7 @@ alias magick='nocorrect magick'
 
 alias recordSimulator='xcrun simctl io booted recordVideo ~/Desktop/video.mov'
 alias rmDerivedData='rm -rf ~/Library/Developer/Xcode/DerivedData/'
+alias sysDiagnoseSimulator='xcrun simctl diagnose'
 alias videoToGif='ffmpeg -i ~/Desktop/video.mov ~/Desktop/video.gif && rm ~/Desktop/video.mov'
 
 # Postgres

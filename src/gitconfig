@@ -1,10 +1,10 @@
 [user]
-    name = Brian Kracoff
-    email = bkracoff@gmail.com
-    
+	name = Brian Kracoff
+	email = bkracoff@gmail.com
+
 [core]
-    excludesfile = ~/.gitignore_global
-    editor = emacs
+	excludesfile = ~/.gitignore_global
+    editor = vim
 
 [color]
     ui = true
@@ -12,10 +12,17 @@
 [pager]
     branch = false
     diff = false
- 
+
+[pull]
+	rebase = true
+
+[fetch]
+	prune = true
+
 [push]
     default = simple
- 
+
+
 [alias]
     br = branch
     ci = commit
@@ -30,4 +37,3 @@
     st = status -sb
     su = submodule update
     list-alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
-    

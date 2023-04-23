@@ -1,6 +1,6 @@
 # - OhMyZsh -
 
-export ZSH="/Users/briankracoff/.oh-my-zsh"
+export ZSH="~/.oh-my-zsh"
 
 HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"

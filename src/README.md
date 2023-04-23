@@ -2,9 +2,10 @@
 
 ## zshrc
 
-* Install [Oh-My-ZSH](https://ohmyz.sh)
+- Install [Oh-My-ZSH](https://ohmyz.sh)
+- Install [Zsh Autocomplete](https://github.com/marlonrichert/zsh-autocomplete)
+- Copy zshrc over to `~/.zshrc`
 
-## bash_profile
+## gitconfig
 
-* Install [Git autocomplete](https://github.com/git/git/blob/master/contrib/completion/git-completion.bash)
-* Install [hub](https://github.com/github/hub)
+- Copy to `~/.gitconfig`

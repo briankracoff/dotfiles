@@ -1,64 +1,17 @@
-# - OhMyZsh -
+# Main Zsh Configuration
+# This file sources modular configuration files for better organization
 
-export ZSH=~/.oh-my-zsh
+# Directory containing zsh config modules
+ZSH_CONFIG_DIR="${HOME}/.zsh"
 
-HYPHEN_INSENSITIVE="true"
-ENABLE_CORRECTION="true"
+# Source modular configuration files
+source "${ZSH_CONFIG_DIR}/oh-my-zsh.zsh"
+source "${ZSH_CONFIG_DIR}/prompt.zsh"
+source "${ZSH_CONFIG_DIR}/aliases.zsh"
+source "${ZSH_CONFIG_DIR}/paths.zsh"
 
-ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-
-ZSH_THEME_AWS_PREFIX="["
-ZSH_THEME_AWS_SUFFIX="]"
-
-plugins=(
-    asdf
-    dotenv
-    git
-    zsh-autosuggestions
-)
-
-source $ZSH/oh-my-zsh.sh
-
-# Prompt
-
-setopt PROMPT_SUBST
-
-parse_git_branch() {
-    branch=$(git_current_branch)
-    if [ ! -z $branch ];then
-        echo '@'$branch
-    fi
-}
-
-PROMPT=$'%{${fg[cyan]}%}%~%{${fg[magenta]}%}$(parse_git_branch)%{${fg[default]}%} '
-
-# - Aliases -
-
-alias ll='ls -l'
-alias la='ls -a'
-alias magick='nocorrect magick'
-alias npx='nocorrect npx'
-alias code='nocorrect code'
-alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
-
-# iOS
-
-alias recordSimulator='xcrun simctl io booted recordVideo ~/Desktop/video.mov'
-alias rmDerivedData='rm -rf ~/Library/Developer/Xcode/DerivedData/'
-alias sysDiagnoseSimulator='xcrun simctl diagnose'
-alias videoToGif='ffmpeg -i ~/Desktop/video.mov ~/Desktop/video.gif && rm ~/Desktop/video.mov'
-
-# Postgres
-alias psqlStart='pg_ctl -D /usr/local/var/postgres start'
-alias psqlStop='pg_ctl -D /usr/local/var/postgres stop'
-
-
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
-export PATH="$JAVA_HOME/bin:$PATH"
+# Source local configuration if it exists (machine-specific settings)
+# This file is not tracked in the dotfiles repository
+if [[ -f "${HOME}/.zshrc.local" ]]; then
+    source "${HOME}/.zshrc.local"
+fi

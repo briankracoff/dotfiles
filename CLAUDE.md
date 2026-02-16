@@ -9,11 +9,15 @@ This is a personal dotfiles repository containing configuration files for develo
 ## Configuration Files
 
 ### Shell Configuration (zshrc)
-- Location: `src/zshrc`
-- Install: Copy to `~/.zshrc`
+- Main config: `src/zshrc` (sources modular files)
+- Modular files in `src/zsh/`:
+  - `oh-my-zsh.zsh`: Oh-My-Zsh setup, plugins (asdf, dotenv, git, zsh-autosuggestions)
+  - `prompt.zsh`: Custom prompt (shows current directory and git branch)
+  - `aliases.zsh`: Command aliases (general, iOS, Postgres)
+  - `paths.zsh`: PATH and environment variables (asdf, PostgreSQL, Android SDK)
+- Install: Run `setup.sh` to symlink `src/zshrc` → `~/.zshrc` and `src/zsh/` → `~/.zsh/`
 - Prerequisites: [Oh-My-ZSH](https://ohmyz.sh), [Zsh Autocomplete](https://github.com/marlonrichert/zsh-autocomplete)
-- Uses plugins: asdf, dotenv, git, zsh-autosuggestions
-- Custom prompt shows current directory and git branch
+- Optional: Create `~/.zshrc.local` for machine-specific settings (not tracked in git)
 
 ### Git Configuration (gitconfig)
 - Location: `src/gitconfig`
@@ -56,20 +60,28 @@ The zshrc defines several development-related aliases:
 dotfiles/
 ├── src/
 │   ├── gitconfig          # Git configuration
-│   ├── zshrc              # Zsh shell configuration
+│   ├── zshrc              # Main zsh config (sources modular files)
+│   ├── zsh/               # Modular zsh configuration
+│   │   ├── oh-my-zsh.zsh # Oh-My-Zsh setup and plugins
+│   │   ├── prompt.zsh    # Custom prompt
+│   │   ├── aliases.zsh   # Command aliases
+│   │   └── paths.zsh     # PATH and environment variables
 │   ├── ghostty            # Ghostty terminal config
 │   ├── terminal.terminal  # macOS Terminal theme
 │   ├── vscode/           # VSCode settings and keybindings
 │   │   └── setup.sh      # Installation script
 │   └── xcode/            # Xcode color theme and lldb config
 │       └── setup.sh      # Installation script
+├── setup.sh               # Main setup script (creates symlinks)
 └── README.md
 ```
 
 ## Working with Configuration Files
 
 When modifying configuration files:
-- Test changes locally before committing by copying files to their target locations
+- Zsh configs are organized modularly in `src/zsh/` for easier maintenance
+- Test changes locally before committing (files are symlinked via setup.sh)
 - For shell changes, either restart terminal or run `source ~/.zshrc`
 - For VSCode changes, restart VSCode to see changes take effect
 - Git configuration changes take effect immediately
+- Use `~/.zshrc.local` for machine-specific overrides (not tracked in git)

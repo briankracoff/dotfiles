@@ -6,13 +6,19 @@ alias magick='nocorrect magick'
 alias npx='nocorrect npx'
 alias code='nocorrect code'
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+alias tmux='nocorrect tmux'
+
+# tmux
+
+alias cc='tmux has-session -t claude 2>/dev/null && tmux attach -t claude || tmux new -s claude -c "$(pwd)"'
+alias tls='tmux ls'
+alias tkill='tmux kill-session -t claude'
 
 # iOS Development Aliases
 
 alias recordSimulator='xcrun simctl io booted recordVideo ~/Desktop/video.mov'
 alias rmDerivedData='rm -rf ~/Library/Developer/Xcode/DerivedData/'
 alias sysDiagnoseSimulator='xcrun simctl diagnose'
-alias videoToGif='ffmpeg -i ~/Desktop/video.mov ~/Desktop/video.gif && rm ~/Desktop/video.mov'
 
 # Postgres Aliases
 

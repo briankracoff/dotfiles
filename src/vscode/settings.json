@@ -4,7 +4,7 @@
    */
   // Editor
   "editor.codeActionsOnSave": {
-    "source.fixAll.tslint": true
+    "source.fixAll.tslint": "explicit"
   },
   "editor.formatOnSave": true,
   "editor.fontSize": 14,

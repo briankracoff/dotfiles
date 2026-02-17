@@ -11,7 +11,6 @@ ZSH_THEME_AWS_PREFIX="["
 ZSH_THEME_AWS_SUFFIX="]"
 
 plugins=(
-    asdf
     dotenv
     git
     zsh-autosuggestions

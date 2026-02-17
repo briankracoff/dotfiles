@@ -13,6 +13,8 @@ alias tmux='nocorrect tmux'
 alias cc='tmux has-session -t claude 2>/dev/null && tmux attach -t claude || tmux new -s claude -c "$(pwd)"'
 alias tls='tmux ls'
 alias tkill='tmux kill-session -t claude'
+alias ta='tmux attach -t'
+alias tn='tmux new -s'
 
 # iOS Development Aliases
 

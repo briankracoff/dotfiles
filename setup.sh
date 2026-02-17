@@ -42,6 +42,11 @@ echo ""
 echo "Setting up git configuration..."
 setup_symlink "$REPO_DIR/src/gitconfig" "$HOME/.gitconfig"
 
+# Setup tmux configuration
+echo ""
+echo "Setting up tmux configuration..."
+setup_symlink "$REPO_DIR/src/tmux.conf" "$HOME/.tmux.conf"
+
 # Setup ghostty configuration
 echo ""
 echo "Setting up ghostty configuration..."

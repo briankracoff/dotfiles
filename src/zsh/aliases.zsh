@@ -11,6 +11,7 @@ alias tmux='nocorrect tmux'
 # tmux
 
 alias cc='tmux has-session -t claude 2>/dev/null && tmux attach -t claude || tmux new -s claude -c "$(pwd)"'
+alias cc2='tmux has-session -t claude2 2>/dev/null && tmux attach -t claude2 || tmux new -s claude2 -c "$(pwd)"'
 alias tls='tmux ls'
 alias tkill='tmux kill-session -t claude'
 alias ta='tmux attach -t'

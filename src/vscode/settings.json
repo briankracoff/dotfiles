@@ -4,7 +4,7 @@
    */
   // Editor
   "editor.codeActionsOnSave": {
-    "source.fixAll.tslint": "explicit"
+    "source.fixAll.tslint": "explicit",
   },
   "editor.formatOnSave": true,
   "editor.fontSize": 14,
@@ -56,40 +56,64 @@
       "compare": true,
       "details": false,
       "history": false,
-      "remote": true
+      "remote": true,
     },
     "editorGroup": {
       "blame": true,
-      "compare": true
+      "compare": true,
     },
     "editorTab": {
       "clipboard": true,
       "compare": true,
       "history": true,
-      "remote": true
+      "remote": true,
     },
     "explorer": {
       "clipboard": true,
       "compare": true,
       "history": true,
-      "remote": true
+      "remote": true,
     },
     "scmGroup": {
       "compare": true,
       "openClose": true,
       "stash": true,
-      "stashInline": true
+      "stashInline": true,
     },
     "scmItem": {
       "clipboard": true,
       "compare": true,
       "history": true,
       "remote": true,
-      "stash": true
-    }
+      "stash": true,
+    },
   },
-  "gitlens.codeLens.scopes": [
-    "document"
-  ],
-  "gitlens.hovers.enabled": false
+  "gitlens.codeLens.scopes": ["document"],
+  "gitlens.hovers.enabled": false,
+  "gitlens.views.scm.grouped.views": {
+    "commits": true,
+    "branches": true,
+    "remotes": true,
+    "stashes": true,
+    "tags": true,
+    "worktrees": true,
+    "contributors": true,
+    "fileHistory": false,
+    "repositories": true,
+    "searchAndCompare": false,
+    "launchpad": true,
+  },
+  "gitlens.views.scm.grouped.hiddenViews": {
+    "commits": false,
+    "worktrees": false,
+    "branches": false,
+    "remotes": false,
+    "stashes": false,
+    "tags": false,
+    "contributors": true,
+    "repositories": true,
+    "fileHistory": false,
+    "launchpad": true,
+    "searchAndCompare": false,
+  },
 }
